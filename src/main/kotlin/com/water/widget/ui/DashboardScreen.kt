@@ -364,11 +364,10 @@ private fun HeroCard(state: DashboardSummaryUiState, onSwitchAccount: () -> Unit
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp)) {
-                    Text("可用积分", color = contentColor.copy(alpha = 0.70f), fontSize = 12.sp)
-                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom) {
+                    Text("可用额度", color = contentColor.copy(alpha = 0.70f), fontSize = 12.sp)
+                    Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Text(
                             state.scoreTitle,
-                            modifier = Modifier.weight(1f),
                             color = contentColor,
                             fontSize = 30.sp,
                             fontWeight = FontWeight.Bold,
@@ -389,14 +388,14 @@ private fun TodayOverviewCard(usage: WaterUsageUiState) {
     InfoCard(title = "今天概览", subtitle = "") {
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
             UsageMetric(
-                label = "今日花费",
+                label = "今日用水花费",
                 value = usage.todayCostText,
                 accent = MaterialTheme.colorScheme.primaryContainer,
                 content = MaterialTheme.colorScheme.onPrimaryContainer,
                 modifier = Modifier.weight(1f)
             )
             UsageMetric(
-                label = "今日水量",
+                label = "今日估算水量",
                 value = usage.todayWaterText,
                 accent = MaterialTheme.colorScheme.secondaryContainer,
                 content = MaterialTheme.colorScheme.onSecondaryContainer,
